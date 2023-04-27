@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Calculator</title>
+    <style>
+        #calculator {
+            width: 250px;
+            margin: auto;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        input[type=text] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+        }
+
+        input[type=button] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        input[type=button]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input type="text" id="result" readonly>
+        <input type="button" value="1" onclick="addToInput('1')">
+        <input type="button" value="2" onclick="addToInput('2')">
+        <input type="button" value="3" onclick="addToInput('3')">
+        <input type="button" value="+" onclick="addToInput('+')">
+        <br>
+        <input type="button" value="4" onclick="addToInput('4')">
+        <input type="button" value="5" onclick="addToInput('5')">
+        <input type="button" value="6" onclick="addToInput('6')">
+        <input type="button" value="-" onclick="addToInput('-')">
+        <br>
+        <input type="button" value="7" onclick="addToInput('7')">
+        <input type="button" value="8" onclick="addToInput('8')">
+        <input type="button" value="9" onclick="addToInput('9')">
+        <input type="button" value="*" onclick="addToInput('*')">
+        <br>
+        <input type="button" value="0" onclick="addToInput('0')">
+        <input type="button" value="." onclick="addToInput('.')">
+        <input type="button" value="/" onclick="addToInput('/')">
+        <input type="button" value="C" onclick="clearInput()">
+        <br>
+        <input type="button" value="=" onclick="calculate()">
+    </div>
+
+    <script>
+        function addToInput(value) {
+            document.getElementById("result").value += value;
+        }
+
+        function clearInput() {
+            document.getElementById("result").value = "";
+        }
+
+        function calculate() {
+            var expression = document.getElementById("result").value;
+            var result = eval(expression);
+            document.getElementById("result").value = result;
+        }
+    </script>
+</body>
